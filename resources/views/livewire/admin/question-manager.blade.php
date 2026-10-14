@@ -1,7 +1,7 @@
 <div class="max-w-5xl mx-auto p-6 lg:p-8">
     <h1 class="font-display text-2xl font-bold text-gray-900">Questions — {{ $cycle->name }}</h1>
     <p class="text-sm text-gray-500 mt-1">Manage categories and questions for this cycle.</p>
-    <div class="flax-mark"></div>
+    <div class="accent-mark"></div>
 
     <!-- Add category -->
     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 mb-6 mt-6">

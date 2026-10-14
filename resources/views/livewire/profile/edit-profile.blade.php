@@ -1,6 +1,6 @@
 <div class="max-w-2xl mx-auto p-6 lg:p-8">
     <h1 class="font-display text-2xl font-bold text-gray-900">My Profile</h1>
-    <div class="flax-mark"></div>
+    <div class="accent-mark"></div>
 
     @if ($statusMessage)
         <div class="mt-5 p-3 rounded-lg text-sm {{ $statusType === 'success' ? 'bg-emerald-50 text-emerald-700' : 'bg-brand-50 text-brand-700' }}">

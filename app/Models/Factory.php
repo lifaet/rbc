@@ -10,7 +10,7 @@ class Factory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'region', 'contact_email', 'status'];
+    protected $fillable = ['name', 'region', 'district', 'address', 'factory_type', 'trade_license_no', 'contact_person', 'contact_phone', 'worker_count', 'contact_email', 'status'];
 
     public function users(): HasMany
     {

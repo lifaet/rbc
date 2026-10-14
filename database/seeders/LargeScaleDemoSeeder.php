@@ -38,7 +38,7 @@ class LargeScaleDemoSeeder extends Seeder
         // --- Admin (reuse if already exists) ---
         $admin = User::firstOrCreate(
             ['email' => 'admin@example.com'],
-            ['name' => 'FLAXA Admin', 'password' => Hash::make('password'), 'role' => 'super_admin']
+            ['name' => 'Admin', 'password' => Hash::make('password'), 'role' => 'super_admin']
         );
 
         // --- Cycle ---

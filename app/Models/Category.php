@@ -11,7 +11,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cycle_id', 'name', 'sort_order'];
+    protected $fillable = ['cycle_id', 'name', 'pillar', 'description', 'sort_order'];
 
     public function cycle(): BelongsTo
     {

@@ -159,10 +159,7 @@ class SurveyForm extends Component
 
         DB::transaction(function () {
             $this->persistAnswers();
-            $this->submission->update([
-                'status' => 'submitted',
-                'submitted_at' => now(),
-            ]);
+            $this->submission->update(['status' => 'submitted', 'submitted_at' => now()]);
         });
 
         $this->statusType = 'success';
@@ -187,7 +184,7 @@ class SurveyForm extends Component
             'categories' => $this->categories,
             'categoryProgress' => $this->categoryProgress,
             'activeCategory' => $this->activeCategory,
-            'overallProgress' => $this->overallProgress,
+            'overallProgress' => $this->overallProgress
         ]);
     }
 }

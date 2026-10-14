@@ -12,6 +12,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('region')->nullable();
+            $table->string('district')->nullable();
+            $table->string('address')->nullable();
+            $table->string('factory_type')->nullable();
+            $table->string('trade_license_no')->nullable();
+            $table->string('contact_person')->nullable();
+            $table->string('contact_phone')->nullable();
+            $table->unsignedInteger('worker_count')->nullable();
             $table->string('contact_email')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();

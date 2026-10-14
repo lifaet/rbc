@@ -7,9 +7,9 @@
     @else
         <!-- Header -->
         <div class="mb-6">
-            <h1 class="font-display text-2xl font-bold text-gray-900">{{ $cycle->name }} Sustainability Survey</h1>
+            <h1 class="font-display text-2xl font-bold text-gray-900">{{ $cycle->name }} ESG Survey</h1>
             <p class="text-sm text-gray-500 mt-1">Deadline: {{ $cycle->close_date->format('d M, Y') }}</p>
-            <div class="flax-mark"></div>
+            <div class="accent-mark"></div>
         </div>
 
         <!-- Overall progress -->
@@ -86,6 +86,7 @@
                                             <span class="text-alert">*</span>
                                         @endif
                                     </label>
+                                    @if($question->help_text)<p class="text-xs text-gray-400 mb-1">{{ $question->help_text }}</p>@endif
 
                                     @if ($question->type === 'text')
                                         <textarea wire:model.lazy="answers.{{ $question->id }}" rows="2"
@@ -107,6 +108,7 @@
                                                     <input type="radio" wire:model.live="answers.{{ $question->id }}" value="{{ $option }}" class="hidden" />
                                                     {{ $option }}
                                                 </label>
+                                    @if($question->help_text)<p class="text-xs text-gray-400 mb-1">{{ $question->help_text }}</p>@endif
                                             @endforeach
                                         </div>
 
@@ -118,6 +120,7 @@
                                                     <input type="checkbox" wire:model.live="answers.{{ $question->id }}" value="{{ $option }}" class="hidden" />
                                                     {{ $option }}
                                                 </label>
+                                    @if($question->help_text)<p class="text-xs text-gray-400 mb-1">{{ $question->help_text }}</p>@endif
                                             @endforeach
                                         </div>
                                     @endif
@@ -125,6 +128,7 @@
                             @endforeach
                         </div>
 
+                        </div>
                         <div class="flex items-center justify-between mt-8 pt-5 border-t border-gray-100">
                             <button type="button" wire:click="previousCategory"
                                 class="px-4 py-2 text-sm rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50">

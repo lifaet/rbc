@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'factory_id',
+        'name', 'email', 'password', 'role', 'factory_id', 'is_active', 'last_login_at',
     ];
 
     protected $hidden = [
@@ -22,7 +22,7 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
+            'email_verified_at' => 'datetime', 'last_login_at' => 'datetime', 'is_active' => 'boolean',
             'password' => 'hashed',
         ];
     }
@@ -32,10 +32,7 @@ class User extends Authenticatable
         return $this->belongsTo(Factory::class);
     }
 
-    public function isAdmin(): bool
-    {
-        return in_array($this->role, ['admin', 'super_admin']);
-    }
+    public function isAdmin(): bool { return in_array($this->role, ['admin', 'super_admin']); }
 
     public function isFactoryUser(): bool
     {

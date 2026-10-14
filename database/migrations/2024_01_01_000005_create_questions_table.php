@@ -14,6 +14,7 @@ return new class extends Migration
             $table->foreignId('cycle_id')->constrained('cycles')->cascadeOnDelete();
             $table->text('text');
             $table->enum('type', ['text', 'number', 'single_choice', 'multi_choice', 'date'])->default('text');
+            $table->text('help_text')->nullable();
             $table->json('options')->nullable(); // for single_choice / multi_choice
             $table->boolean('is_required')->default(true);
             $table->unsignedInteger('sort_order')->default(0);

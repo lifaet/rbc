@@ -9,8 +9,8 @@
                     <path d="M16 24 C 12 24, 9 21, 9 16 C 13 16, 16 19, 16 24 Z" fill="#C4C4F9"/>
                     <path d="M16 24 C 20 24, 23 21, 23 16 C 19 16, 16 19, 16 24 Z" fill="#F1F1FE"/>
                 </svg>
-                <h1 class="font-display font-bold text-2xl text-brand-900 mt-3">FLAXA</h1>
-                <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Sustainability Data Portal</p>
+                <h1 class="font-display font-bold text-2xl text-brand-900 mt-3">ESG Data Platform</h1>
+                <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">ESG data collection made simple</p>
             </div>
 
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
@@ -38,7 +38,7 @@
                     <button type="submit" class="w-full py-2.5 rounded-lg bg-brand-700 text-white font-medium hover:bg-brand-800 transition-colors">
                         Log In
                     </button>
-                </form>
+                <a class="block text-center text-sm text-brand-700 hover:underline" href="{{ route('password.request') }}">Forgot your password?</a></form>
             </div>
         </div>
     </div>

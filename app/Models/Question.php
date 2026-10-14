@@ -12,7 +12,7 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id', 'cycle_id', 'text', 'type', 'options', 'is_required', 'sort_order',
+        'category_id', 'cycle_id', 'text', 'type', 'options', 'help_text', 'is_required', 'sort_order',
     ];
 
     protected function casts(): array

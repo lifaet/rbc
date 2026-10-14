@@ -2,7 +2,7 @@
     <div class="flex items-center justify-between">
         <div>
             <h1 class="font-display text-2xl font-bold text-gray-900">Manage Factories</h1>
-            <div class="flax-mark"></div>
+            <div class="accent-mark"></div>
         </div>
         <button wire:click="openCreateForm" class="px-4 py-2 rounded-lg bg-brand-700 text-white text-sm hover:bg-brand-800">
             + Add Factory
@@ -66,6 +66,8 @@
         </div>
     @endif
 
+    @if(session('success'))<div class="p-3 rounded bg-green-50 text-green-700 text-sm mt-4">{{ session('success') }}</div>@endif
+    <form wire:submit="importCsv" class="bg-white rounded-xl border p-4 mt-4 flex flex-wrap gap-3 items-end"><div><label class="block text-xs font-medium text-gray-500 mb-1">Bulk import factories (CSV: name,region,district,contact_email,contact_person,contact_phone,login_email,login_password)</label><input type="file" wire:model="csvFile" accept=".csv,.txt" class="text-sm">@error('csvFile')<p class="text-red-600 text-xs">{{ $message }}</p>@enderror</div><button class="px-3 py-2 rounded-lg bg-brand-700 text-white text-sm">Import CSV</button></form>
     <input type="text" wire:model.live.debounce.300ms="search" placeholder="Search factories…"
         class="w-full md:w-80 rounded-lg border-gray-300 text-sm my-6 focus:ring-brand-600 focus:border-brand-600" />
 

@@ -1,6 +1,6 @@
 <div class="max-w-5xl mx-auto p-6">
     <h1 class="font-display text-2xl font-bold text-gray-900">Manage Survey Cycles</h1>
-    <div class="flax-mark"></div>
+    <div class="accent-mark"></div>
 
     <form wire:submit.prevent="save" class="bg-white rounded-xl border border-gray-100 shadow-sm p-5 mb-8 grid grid-cols-1 md:grid-cols-4 gap-4">
         <div class="md:col-span-2">

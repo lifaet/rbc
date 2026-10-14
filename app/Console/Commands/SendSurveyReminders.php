@@ -15,7 +15,8 @@ class SendSurveyReminders extends Command
     protected $description = 'Send reminder emails to factories that have not submitted for an active/closing cycle';
 
     // Days-before-close offsets at which a reminder should fire.
-    protected array $offsets = [14, 3, 0];
+    protected array $offsets = []; // set from REMINDER_OFFSETS in handle()
+    protected function offsets(): array { return array_map('intval', explode(',', (string) env('REMINDER_OFFSETS', '14,3,0'))); }
 
     public function handle(): int
     {
@@ -24,7 +25,7 @@ class SendSurveyReminders extends Command
         foreach ($cycles as $cycle) {
             $daysToClose = now()->startOfDay()->diffInDays($cycle->close_date, false);
 
-            if (! in_array($daysToClose, $this->offsets)) {
+            if (! in_array($daysToClose, $this->offsets())) {
                 continue;
             }
 
@@ -54,7 +55,7 @@ class SendSurveyReminders extends Command
                     "Dear {$factory->name},\n\nThis is a reminder that the sustainability survey for cycle \"{$cycle->name}\" is due by {$cycle->close_date->format('d M Y')}. Please log in and complete your submission.\n\nThank you.",
                     function ($message) use ($factory, $cycle) {
                         $message->to($factory->contact_email)
-                            ->subject("Reminder: Sustainability Survey Due — {$cycle->name}");
+                            ->subject("Reminder: ESG Survey Due — {$cycle->name}");
                     }
                 );
 
